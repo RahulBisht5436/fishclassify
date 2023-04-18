@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="{{url_for('static', filename='css/styleinfo.css')}}"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h2>Fish Classification</h2>
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form action="#">
+          <h1>Create Account</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>or use your email for registration</span>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <button>Sign Up</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form action="#">
+          <h1>Trout</h1>
+          <div class="social-container">
+            <img
+              height="100%"
+              width="100%"
+              src="data:image/jpeg;base64,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"
+            />
+          </div>
+
+          <a href="#">Try again ??</a>
+          <button>Classfy</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>
+              To keep connected with us please login with your personal info
+            </p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Hello, Friend!</h1>
+            <p>
+              Trout are species of freshwater fish belonging to the genera
+              Oncorhynchus, Salmo and Salvelinus, all of which are of the
+              subfamily Salmoninae of the family Salmonidae. The word trout is
+              also used as part of the name of some non-salmonid fish such as
+              Cynoscion nebulosus, the spotted seatrout or speckled trout. Trout
+              are closely related to salmon and char (or charr): species termed
+              salmon and char occur in the same genera as do fish called trout
+              (Oncorhynchus – Pacific salmon and trout, Salmo – Atlantic salmon
+              and various trout, Salvelinus – char and trout).
+            </p>
+            <a href="{{ url_for('d8') }}">
+              <button class="ghost" id="signUp">More</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        Created with <i class="fa fa-heart"></i> by
+        <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
+        - Read how I created this and how you can join the challenge
+        <a
+          target="_blank"
+          href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/"
+          >here</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>

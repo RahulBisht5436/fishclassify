@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="{{url_for('static', filename='css/styleinfo.css')}}"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h2>Fish Classification</h2>
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form action="#">
+          <h1>Create Account</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>or use your email for registration</span>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <button>Sign Up</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form action="#">
+          <h1>Striped Red Mullet</h1>
+          <div class="social-container">
+            <img
+              height="100%"
+              width="100%"
+              src="data:image/jpeg;base64,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rOjRa0Q0QkQNqIikEREBYhZRBz/GeFEzUpN5tS0WnqR+btv4qoo1wfEfUEbH6hdrCouL8HzE1aQAfu3QPHfo7ofVc2XFzuG1MnGpV7H3nzkfL5LqqL8zQeoBXGUn+osWu1aehHXuuj4HXzMLTq0+46fFTimYRkhaoiLoZCIiAiIgLCyiDCyiICIiCvxtOHNd1sex1BWupcjpv2PyVi9gIg6KBUoOBiJEQCO+kjsgsG6BelgBZQEREBERAREQVPE+G5pc0XPtN/F38Vs4fgAxoLuZ2sm8dO091ZIgIiICIiAiIgIiICIiCn4twwP52WePRw6O+ai8ELg9wLSIFwdWmRr8xquhRU8I8twt5TrUgWURXVEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBFHxFfLAAlx0HhqtTQ8xziSJgC3r5oJqKPQrEktcIIv2I6hSEBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERB4eLHwK00muBg3EAA/PwUlEESkxwABmYF7WG4v+6yM5O4Hl+b/wCVKRBFh8amYnbWBbwmVuaDv193ktiIIOI9uerCB4qvpudygG7SYi8Ax02VxWpBwvYjQjUFafuXzMtJ0ki8IPOYOqNI2Bn4W2upy0UqOWbyTqT9aLegIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIg/9k="
+            />
+          </div>
+
+          <a href="#">Try again ??</a>
+          <button>Classfy</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>
+              To keep connected with us please login with your personal info
+            </p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Hello, Friend!</h1>
+            <p>
+              The striped red mullet or surmullet (Mullus surmuletus) is a
+              species of goatfish found in the Mediterranean Sea, eastern North
+              Atlantic Ocean, and the Black Sea. They can be found in water as
+              shallow as 5 metres (16 ft) or as deep as 409 metres (1,342 ft)
+              depending upon the portion of their range that they are in. This
+              species can reach a length of 40 centimetres (16 in) SL though
+              most are only around 25 centimetres (9.8 in). The greatest
+              recorded weight for this species is 1 kilogram (2.2 lb). This is a
+              commercially important species and is also sought after as a game
+              fish.
+            </p>
+            <a href="{{ url_for('d7') }}">
+              <button class="ghost" id="signUp">More</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        Created with <i class="fa fa-heart"></i> by
+        <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
+        - Read how I created this and how you can join the challenge
+        <a
+          target="_blank"
+          href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/"
+          >here</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>

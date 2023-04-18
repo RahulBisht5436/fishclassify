@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="{{url_for('static', filename='css/styleinfo.css')}}"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h2>Fish Classification</h2>
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form action="#">
+          <h1>Create Account</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>or use your email for registration</span>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <button>Sign Up</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form action="#">
+          <h1>Sea Bass</h1>
+          <div class="social-container">
+            <img
+              height="100%"
+              width="100%"
+              src="https://cdn.britannica.com/43/9443-050-5D22A052/Black-sea-bass.jpg"
+            />
+          </div>
+
+          <a href="#">Try again ??</a>
+          <button>Classfy</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>
+              To keep connected with us please login with your personal info
+            </p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Hello, Friend!</h1>
+            <p>
+              sea bass, (family Serranidae), any of the numerous fishes of the
+              family Serranidae (order Perciformes), most of which are marine,
+              found in the shallower regions of warm and tropical seas. The
+              family includes about 475 species, many of them well-known food
+              and sport fishes. Although the term sea bass may be used for the
+              family as a whole, the fishes themselves bear a variety of names,
+              such as hamlet, hind as well as sea bass and bass.
+            </p>
+            <a href="{{ url_for('d5') }}">
+              <button class="ghost" id="signUp">More</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        Created with <i class="fa fa-heart"></i> by
+        <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
+        - Read how I created this and how you can join the challenge
+        <a
+          target="_blank"
+          href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/"
+          >here</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>
