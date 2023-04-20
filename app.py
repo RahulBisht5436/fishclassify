@@ -51,7 +51,7 @@ def upload():
         # Get the file from post request
         f = request.files['file']
         img=PIL.Image.open(f)
-        size=(234,234)
+        size=(256,256)
         img=img.resize(size)
         array = tf.keras.preprocessing.image.img_to_array(img)
         array = np.expand_dims(array, axis=0)
