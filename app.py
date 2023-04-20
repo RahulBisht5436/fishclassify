@@ -34,7 +34,6 @@ def get_img_array(img_path, size):
 def model_predict(img_path, model):
     #preprocessing
     test=get_img_array(img_path,(256,256,3))
-    tf.session()
     pred=model.predict(test)
     pred=np.argmax(pred,axis=1)
     return pred
@@ -63,7 +62,7 @@ def upload():
 #             'github.com/RahulBisht5436/fishclassify', 'uploads', secure_filename(f.filename))
 #         f.save(file_path)
 
-        Make prediction
+#         Make prediction
 #         preds = model_predict(file_path, model)
         preds=preds[0]
 
