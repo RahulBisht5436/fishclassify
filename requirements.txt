@@ -13,3 +13,7 @@ sys
 os
 re
 glob
+
+PIL
+tensorflow
+Keras
