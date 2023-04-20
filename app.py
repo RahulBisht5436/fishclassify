@@ -49,13 +49,13 @@ globalvar=0
 def upload():
     if request.method == 'POST':
         # Get the file from post request
-#         f = request.files['file']
-#         img=f
-#         img = cv2.resize(img, (256,256))
-#         img = np.array(img, dtype="float32")
-#         img = np.reshape(img, (1,256,256,3))
-#         pred=model.predict(test)
-#         preds=np.argmax(pred,axis=1)
+        f = request.files['file']
+        img=f
+        img = cv2.resize(img, (256,256))
+        img = np.array(img, dtype="float32")
+        img = np.reshape(img, (1,256,256,3))
+        pred=model.predict(test)
+        preds=np.argmax(pred,axis=1)
         # Save the file to ./uploads
 #         basepath = os.path.dirname(__file__)
 #         file_path = os.path.join(
@@ -64,7 +64,7 @@ def upload():
 
         # Make prediction
 #         preds = model_predict(file_path, model)
-        preds=1
+        preds=preds[0]
 
         print(f'ama********************************************${preds}**************************************************')
         if  int(int(preds)==0):
