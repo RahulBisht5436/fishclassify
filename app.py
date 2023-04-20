@@ -64,7 +64,7 @@ def upload():
 
 #         Make prediction
 #         preds = model_predict(file_path, model)
-        preds=preds[0]
+        
 
         print(f'ama********************************************${preds}**************************************************')
         if  int(int(preds)==0):
