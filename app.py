@@ -50,7 +50,7 @@ def upload():
     if request.method == 'POST':
         # Get the file from post request
         f = request.files['file']
-        img=f
+        img=Image.open(f)
         img = cv2.resize(img, (256,256))
         img = np.array(img, dtype="float32")
         img = np.reshape(img, (1,256,256,3))
