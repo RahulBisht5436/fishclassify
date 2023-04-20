@@ -15,5 +15,4 @@ re
 glob
 
 PIL
-tensorflow
-Keras
+
