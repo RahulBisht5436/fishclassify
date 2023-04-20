@@ -51,10 +51,13 @@ def upload():
         # Get the file from post request
         f = request.files['file']
         img=PIL.Image.open(f)
-        img = cv2.resize(img, (256,256))
-        img = np.array(img, dtype="float32")
-        img = np.reshape(img, (1,256,256,3))
-        pred=model.predict(img)
+        size=(234,234)
+        img=img.resize(size)
+        array = tf.keras.preprocessing.image.img_to_array(img)
+        array = np.expand_dims(array, axis=0)
+        
+        
+        pred=model.predict(array)
         preds=np.argmax(pred,axis=1)
         # Save the file to ./uploads
 #         basepath = os.path.dirname(__file__)
