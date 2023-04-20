@@ -45,17 +45,17 @@ def index():
     return render_template('index.html')
 
 
-# @app.route('/', methods=[ 'POST'])
-# def upload():
-#     if request.method == 'POST':
-#         # Get the file from post request
-#         f = request.files['file']
-#         img=f
-#         img = cv2.resize(img, (256,256))
-#         img = np.array(img, dtype="float32")
-#         img = np.reshape(img, (1,256,256,3))
-#         pred=model.predict(img)
-#         preds=np.argmax(pred,axis=1)
+@app.route('/', methods=[ 'POST'])
+def upload():
+    if request.method == 'POST':
+        # Get the file from post request
+        f = request.files['file']
+        img=f
+        img = cv2.resize(img, (256,256))
+        img = np.array(img, dtype="float32")
+        img = np.reshape(img, (1,256,256,3))
+        pred=model.predict(img)
+        preds=np.argmax(pred,axis=1)
         # Save the file to ./uploads
 #         basepath = os.path.dirname(__file__)
 #         file_path = os.path.join(
@@ -66,30 +66,30 @@ def index():
 #         preds = model_predict(file_path, model)
         
 
-#         print(f'ama********************************************${preds}**************************************************')
-#         if  int(int(preds)==0):
-#             return render_template('infoblackseasprat.html')
-#         if int(int(preds)==1):
-#             return render_template('infoglitredfish.html')
-#         if int(int(preds)==2):
-#             return render_template('horsemac.html')
-#         if int(int(preds)==3):
-#             return render_template('inforedmullet.html')
-#         if int(int(preds)==4):
-#             return render_template('inforedseabeam.html')
-#         if int(int(preds)==5):
-#             return render_template('infoseabass.html')
-#         if int(int(preds)==6):
-#             return render_template('infoshrimp.html')
-#         if int(int(preds)==7):
-#             return render_template('infostrippedredmullet.html')
-#         if int(int(preds)==8):
-#             return render_template('infotrout.html')
+        print(f'ama********************************************${preds}**************************************************')
+        if  int(int(preds)==0):
+            return render_template('infoblackseasprat.html')
+        if int(int(preds)==1):
+            return render_template('infoglitredfish.html')
+        if int(int(preds)==2):
+            return render_template('horsemac.html')
+        if int(int(preds)==3):
+            return render_template('inforedmullet.html')
+        if int(int(preds)==4):
+            return render_template('inforedseabeam.html')
+        if int(int(preds)==5):
+            return render_template('infoseabass.html')
+        if int(int(preds)==6):
+            return render_template('infoshrimp.html')
+        if int(int(preds)==7):
+            return render_template('infostrippedredmullet.html')
+        if int(int(preds)==8):
+            return render_template('infotrout.html')
 #         else:
 #             return render_template('d0.html')
         
           
-#     return None
+    return None
 
 @app.route('/d0', methods=['GET'])
 def d0():
