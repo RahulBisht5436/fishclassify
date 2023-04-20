@@ -6,6 +6,7 @@ import glob
 import re
 import numpy as np
 import PIL.Image
+import cv2
 
 
 # Keras
