@@ -85,8 +85,8 @@ def upload():
             return render_template('infostrippedredmullet.html')
         if int(int(preds)==8):
             return render_template('infotrout.html')
-#         else:
-#             return render_template('d0.html')
+        else:
+            return render_template('d0.html')
         
           
     return None
