@@ -7,7 +7,7 @@ gunicorn
 
 scikit-learn==0.23.0
 keras
-tensorflow
+
 PIL
 sys
 os
