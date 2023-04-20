@@ -5,9 +5,9 @@ import os
 import glob
 import re
 import numpy as np
-import PIL.Image
+import PIL.Image 
 
-
+import cv2
 # Keras
 from keras.applications.imagenet_utils import preprocess_input, decode_predictions
 from keras.models import load_model
@@ -49,21 +49,24 @@ def upload():
     if request.method == 'POST':
         # Get the file from post request
         f = request.files['file']
-        img=f
-        img = cv2.resize(img, (256,256))
-        img = np.array(img, dtype="float32")
-        img = np.reshape(img, (1,256,256,3))
-        pred=model.predict(test)
-        preds=np.argmax(pred,axis=1)
-        # Save the file to ./uploads
+        img = PIL.Image.open(f)
+        img = np.array(img)
+
+#         # Save the file to ./uploads
 #         basepath = os.path.dirname(__file__)
 #         file_path = os.path.join(
 #             basepath, 'uploads', secure_filename(f.filename))
 #         f.save(file_path)
 
-        # Make prediction
+#         # Make prediction
 #         preds = model_predict(file_path, model)
         
+        
+        img = cv2.resize(img, (256,256))
+        img = np.array(img, dtype="float32")
+        img = np.reshape(img, (1,256,256,3))
+        pred=model.predict(img)
+        preds=np.argmax(pred,axis=1)
 
         print(f'ama********************************************${preds}**************************************************')
         if  int(int(preds)==0):
@@ -125,5 +128,5 @@ def d8():
     return render_template('d8.html')
 
 if __name__ == '__main__':
-    app.run(debug=False,host='0.0.0.0')
+    app.run(debug=True)
 
