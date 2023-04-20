@@ -86,7 +86,7 @@ def upload():
         if int(int(preds)==8):
             return render_template('infotrout.html')
         else:
-            render_template('infotrout.html')
+            return render_template('d0.html')
         
           
     return None
