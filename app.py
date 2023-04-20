@@ -35,7 +35,7 @@ def model_predict(img_path, model):
     test=get_img_array(img_path,(256,256,3))
     pred=model.predict(test)
     pred=np.argmax(pred,axis=1)
-    return pred
+    return jsonify(pred)
 
 
 @app.route('/', methods=['GET'])
