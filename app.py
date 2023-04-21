@@ -78,23 +78,23 @@ def upload():
         preds=np.argmax(pred,axis=1)
 
         print(f'ama********************************************${preds}**************************************************')
-        if  int(int(preds)==0):
+        if  int(preds[0])==0):
             return render_template('infoblackseasprat.html')
-        if int(int(preds)==1):
+        if int(preds[0])==1):
             return render_template('infoglitredfish.html')
-        if int(int(preds)==2):
+        if int(preds[0])==2):
             return render_template('horsemac.html')
-        if int(int(preds)==3):
+        if int(preds[0])==3):
             return render_template('inforedmullet.html')
-        if int(int(preds)==4):
+        if int(preds[0])==4):
             return render_template('inforedseabeam.html')
-        if int(int(preds)==5):
+        if int(preds[0])==5):
             return render_template('infoseabass.html')
-        if int(int(preds)==6):
+        if int(preds[0])==6):
             return render_template('infoshrimp.html')
-        if int(int(preds)==7):
+        if int(preds[0])==7):
             return render_template('infostrippedredmullet.html')
-        if int(int(preds)==8):
+        if int(preds[0])==8):
             return render_template('infotrout.html')
         
           
