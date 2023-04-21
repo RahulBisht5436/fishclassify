@@ -5,11 +5,9 @@ import os
 import glob
 import re
 import numpy as np
-import PIL.Image
+import PIL.Image 
+
 import cv2
-import io
-
-
 # Keras
 from keras.applications.imagenet_utils import preprocess_input, decode_predictions
 from keras.models import load_model
@@ -20,6 +18,7 @@ import tensorflow as tf
 from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
 from gevent.pywsgi import WSGIServer
+import io
 app = Flask(__name__)
 
 model=tf.keras.models.load_model('rahulbishtfinalproject.h5')
@@ -44,39 +43,27 @@ def model_predict(img_path, model):
 def index():
     # Main page
     return render_template('index.html')
-
+globalvar=0
 
 @app.route('/', methods=[ 'POST'])
 def upload():
     if request.method == 'POST':
-#         # Get the file from post request
-#         f = request.files['file']
-#         img=PIL.Image.open(f)
-#         size=(256,256)
-#         img=img.resize(size)
-#         array = tf.keras.preprocessing.image.img_to_array(img)
-#         array = np.expand_dims(array, axis=0)
-        
-        
-#         pred=model.predict(array)
-#         preds=np.argmax(pred,axis=1)
-#         # Save the file to ./uploads
-# #         basepath = os.path.dirname(__file__)
-# #         file_path = os.path.join(
-# #             'github.com/RahulBisht5436/fishclassify', 'uploads', secure_filename(f.filename))
-# #         f.save(file_path)
+        # # Get the file from post request
+        # f = request.files['file']
+        # image=f.data()
+        # # Save the file to ./uploads
+        # basepath = os.path.dirname(__file__)
+        # file_path = os.path.join(
+        #     basepath, 'uploads', secure_filename(f.filename))
+        # f.save(file_path)
 
-# #         Make prediction
-# #         preds = model_predict(file_path, model)
-            file = request.files['file']
+        # Make prediction
+        # preds = model_predict(file_path, model)
+        file = request.files['file']
 
     # read the file data into memory
-            file_bytes = io.BytesIO(file.read())
-            img = tf.keras.utils.load_img(file_bytes, target_size=(256, 256))
-            img = np.array(img)
-            img = np.reshape(img, (1,256,256,3))
-            pred=model.predict(img)
-            preds=np.argmax(pred,axis=1)
+        file_bytes = io.BytesIO(file.read())
+        img = tf.keras.utils.load_img(file_bytes, target_size=(256, 256))
     # open the image file with PIL
         # img = PIL.Image.open(file_bytes)
 
@@ -85,29 +72,30 @@ def upload():
         # img = img.resize(size)
         
         # img = cv2.resize(img, (256,256))
-        
+        img = np.array(img)
+        img = np.reshape(img, (1,256,256,3))
+        pred=model.predict(img)
+        preds=np.argmax(pred,axis=1)
 
         print(f'ama********************************************${preds}**************************************************')
-        if  int(preds[0])==0:
+        if  int(int(preds)==0):
             return render_template('infoblackseasprat.html')
-        if int(preds[0])==1:
+        if int(int(preds)==1):
             return render_template('infoglitredfish.html')
-        if int(preds[0])==2:
+        if int(int(preds)==2):
             return render_template('horsemac.html')
-        if int(preds[0])==3:
+        if int(int(preds)==3):
             return render_template('inforedmullet.html')
-        if int(preds[0])==4:
+        if int(int(preds)==4):
             return render_template('inforedseabeam.html')
-        if int(preds[0])==5:
+        if int(int(preds)==5):
             return render_template('infoseabass.html')
-        if int(preds[0])==6:
+        if int(int(preds)==6):
             return render_template('infoshrimp.html')
-        if int(preds[0])==7:
+        if int(int(preds)==7):
             return render_template('infostrippedredmullet.html')
-        if int(preds[0])==8:
+        if int(int(preds)==8):
             return render_template('infotrout.html')
-        else:
-            return render_template('d0.html')
         
           
     return None
@@ -149,5 +137,5 @@ def d8():
     return render_template('d8.html')
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run()
+    app.run(debug=True)
+
