@@ -7,6 +7,7 @@ import re
 import numpy as np
 import PIL.Image
 import cv2
+import io
 
 
 # Keras
@@ -48,25 +49,42 @@ def index():
 @app.route('/', methods=[ 'POST'])
 def upload():
     if request.method == 'POST':
-        # Get the file from post request
-        f = request.files['file']
-        img=PIL.Image.open(f)
-        size=(256,256)
-        img=img.resize(size)
-        array = tf.keras.preprocessing.image.img_to_array(img)
-        array = np.expand_dims(array, axis=0)
+#         # Get the file from post request
+#         f = request.files['file']
+#         img=PIL.Image.open(f)
+#         size=(256,256)
+#         img=img.resize(size)
+#         array = tf.keras.preprocessing.image.img_to_array(img)
+#         array = np.expand_dims(array, axis=0)
         
         
-        pred=model.predict(array)
-        preds=np.argmax(pred,axis=1)
-        # Save the file to ./uploads
-#         basepath = os.path.dirname(__file__)
-#         file_path = os.path.join(
-#             'github.com/RahulBisht5436/fishclassify', 'uploads', secure_filename(f.filename))
-#         f.save(file_path)
+#         pred=model.predict(array)
+#         preds=np.argmax(pred,axis=1)
+#         # Save the file to ./uploads
+# #         basepath = os.path.dirname(__file__)
+# #         file_path = os.path.join(
+# #             'github.com/RahulBisht5436/fishclassify', 'uploads', secure_filename(f.filename))
+# #         f.save(file_path)
 
-#         Make prediction
-#         preds = model_predict(file_path, model)
+# #         Make prediction
+# #         preds = model_predict(file_path, model)
+            file = request.files['file']
+
+    # read the file data into memory
+            file_bytes = io.BytesIO(file.read())
+            img = tf.keras.utils.load_img(file_bytes, target_size=(256, 256))
+            img = np.array(img)
+            img = np.reshape(img, (1,256,256,3))
+            pred=model.predict(img)
+            preds=np.argmax(pred,axis=1)
+    # open the image file with PIL
+        # img = PIL.Image.open(file_bytes)
+
+    # resize the image
+        # size = (256, 256)  # set the new size of the image
+        # img = img.resize(size)
+        
+        # img = cv2.resize(img, (256,256))
         
 
         print(f'ama********************************************${preds}**************************************************')
